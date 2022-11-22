@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Blogly: Tags{% endblock %}
+{% block brand %}Blogly{% endblock %}
+{% block content %}
+<h1>All Tags on Blogly</h1>
+<ul>
+    {% for tag in tags %}
+    <li><a class="no-text-decoration" href="/tags/{{tag.id}}">{{tag.name}}</a></li>
+    {% endfor %}
+</ul>
+<form action="/tags/new">
+    <button class="btn btn-primary"><i class="fa-solid fa-tags"></i>Add Tag</button>
+</form>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Blogly: Create Tag{% endblock %}
+{% block brand %}Blogly{% endblock %}
+{% block content %}
+<h2>Create A Tag</h2>
+<form>
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input class="form-control" type="text" name="name" id="name" placeholder="Enter Tag Name">
+    </div>
+    <button class="btn btn-primary" formmethod="get" formaction="/tags">Cancel</button>
+    <button class="btn btn-success" formmethod="post" formaction="/tags/new">Create</button>
+</form>
+{% endblock %}

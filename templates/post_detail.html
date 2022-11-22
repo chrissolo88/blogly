@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Blogly: {{post.title}}{% endblock %}
+{% block brand %}Blogly{% endblock %}
+{% block content %}
+<div class="row d-flex justify-content-center m-2">
+    <div class="col-8 my-auto align-content-center">
+        <h1>{{post.title}}</h1>
+        <p class="mb-0">{{post.content}}</p>
+        <footer class="blockquote-footer mb-2">by  <a class="no-text-decoration" href="/users/{{user.id}}">{{user.fullname}}</a>, created at {{post.created_at}}</footer>
+        <p class="m-2"><b>Tags: 
+            {% for tag in tags %}
+            <span class="badge badge-pill badge-primary">{{tag.name}}</span>
+            {% endfor %}
+        </b></p>
+        <form action="">
+            <button class="btn btn-primary" formaction="/posts/{{post.id}}/edit"><i class="fa-solid fa-pencil"></i> Edit</button>
+            <button class="btn btn-danger" formaction="/posts/{{post.id}}/delete"><i class="fa-regular fa-circle-xmark"></i> Delete</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

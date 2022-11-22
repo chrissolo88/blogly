@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Blogly: {{user.fullname}}{% endblock %}
+{% block brand %}Blogly{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-2 ml-auto">
+        <img class="img-thumbnail" src="{{user.img_url}}" alt="">
+    </div>
+    <div class="col-4 mr-auto">
+        <h1>{{user.fullname}}</h1>
+        <form action="">
+            <button class="btn btn-primary" formaction="/users/{{user.id}}/edit"><i class="fa-solid fa-pencil"></i> Edit</button>
+            <button class="btn btn-danger" formaction="/users/{{user.id}}/delete"><i class="fa-regular fa-circle-xmark"></i> Delete</button>
+        </form>
+        <h1>Posts</h1>
+        <ul>
+            {% for post in posts %}
+            <li><a class="no-text-decoration" href="/posts/{{post.id}}">{{post.title}}</a></li>
+            {% endfor %}
+        </ul>
+        <form action="/users/{{user.id}}/posts/new">
+            <button class="btn btn-success"><i class="fa-solid fa-pencil"></i> New Post</button>
+        </form>
+    </div>
+
+</div>
+{% endblock %}
